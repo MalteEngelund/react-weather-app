@@ -2,7 +2,12 @@ import { useState, useEffect } from "react"
 import style from './WeatherForecast.module.scss'
 
 
-export function WeatherForecast() {
+
+interface WeatherForecastProps {
+  id?: string
+}
+
+export function WeatherForecast({ id }: WeatherForecastProps) {
   const forecastUrl = 'https://api.open-meteo.com/v1/forecast?latitude=57.048&longitude=9.9187&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto'
 
   const [forecastData, setForecastData] = useState<any>() // import af types driller
@@ -16,7 +21,7 @@ export function WeatherForecast() {
   console.log(forecastData);
 
   return (
-    <div>
+    <div className={style.weatherForecastContainer} id={id}>
       {forecastData && forecastData.daily ? (
         <div className={style.weatherDaily}>
           <h2>Next 3 Days Forecast</h2>

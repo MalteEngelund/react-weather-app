@@ -1,4 +1,14 @@
+.currentWeatherContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
 .currentWeather{
+  width: 300px;
+  height: 300px;
+
   div {
     display: flex;
     flex-direction: column;

@@ -2,7 +2,11 @@ import { useState, useEffect } from "react"
 import style from './WeatherFetch.module.scss'
 
 
-export function WeatherFetch() {
+interface WeatherFetchProps {
+  id?: string
+}
+
+export function WeatherFetch({ id }: WeatherFetchProps) {
 
   const weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude=57.048&longitude=9.9187&current_weather=true&timezone=auto'
 
@@ -17,7 +21,7 @@ export function WeatherFetch() {
   console.log(weatherData);
 
   return (
-    <div>
+    <div className={style.currentWeatherContainer} id={id}>
       {weatherData && weatherData.current_weather ? (
         <div className={style.currentWeather}>
           <h2>Current Weather</h2>
